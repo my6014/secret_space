@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f4f0e8" />
+    <meta name="description" content="只属于两个人的密语空间" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>密语空间</title>
+  </head>
+  <body>
+    <div class="paper-noise" aria-hidden="true"></div>
+
+    <main id="login-view" class="login-view">
+      <section class="login-shell" aria-labelledby="login-title">
+        <div class="seal" aria-hidden="true"><span>密</span></div>
+        <p class="eyebrow">FOR THE TWO OF US</p>
+        <h1 id="login-title">密语空间</h1>
+        <p class="login-note">世界很吵，这里只留给我们。</p>
+
+        <form id="login-form" class="login-form">
+          <label for="username">账号</label>
+          <input id="username" name="username" autocomplete="username" maxlength="80" required />
+          <div class="password-label">
+            <label for="password">密码</label>
+            <button id="password-toggle" class="text-button" type="button">显示</button>
+          </div>
+          <input id="password" name="password" type="password" autocomplete="current-password" maxlength="256" required />
+          <p id="login-error" class="form-error" role="alert"></p>
+          <button id="login-button" class="primary-button" type="submit">进入空间</button>
+        </form>
+      </section>
+    </main>
+
+    <main id="app-view" class="app-view" hidden>
+      <header class="app-header">
+        <div class="header-inner">
+          <div class="wordmark">
+            <span class="mini-seal" aria-hidden="true">密</span>
+            <div>
+              <strong>密语空间</strong>
+              <span id="couple-names"></span>
+            </div>
+          </div>
+          <div class="header-actions">
+            <span id="connection-status" class="connection-status"><i></i><b>已连接</b></span>
+            <button id="logout-button" class="quiet-button" type="button">退出</button>
+          </div>
+        </div>
+      </header>
+
+      <section id="timeline" class="timeline" aria-label="密语记录">
+        <button id="load-more" class="load-more" type="button" hidden>更早的密语</button>
+        <div id="empty-state" class="empty-state" hidden>
+          <span aria-hidden="true">“</span>
+          <h2>还没有密语</h2>
+          <p>第一句话，从今天开始。</p>
+        </div>
+        <div id="message-list" class="message-list" aria-live="polite"></div>
+      </section>
+
+      <footer class="composer-wrap">
+        <form id="composer" class="composer">
+          <textarea id="message-input" rows="1" maxlength="2000" placeholder="写下此刻想说的话…" aria-label="密语内容"></textarea>
+          <span id="character-count" class="character-count"></span>
+          <button id="send-button" class="send-button" type="submit" aria-label="发送" title="发送">↑</button>
+        </form>
+      </footer>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

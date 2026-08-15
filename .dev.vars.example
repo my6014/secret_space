@@ -1,0 +1,4 @@
+USER_ONE_PASSWORD_HASH="pbkdf2$210000$replace-me$replace-me"
+USER_TWO_PASSWORD_HASH="pbkdf2$210000$replace-me$replace-me"
+SESSION_SECRET="replace-with-a-random-base64-secret"
+CONTENT_ENCRYPTION_KEY="replace-with-a-random-32-byte-base64-key"
