@@ -42,16 +42,6 @@ npm run migrate:d1 -- path/to/d1-database.sqlite
 
 目标路径默认读取 `.env` 中的 `SQLITE_PATH`。脚本可重复执行，已经存在的消息不会重复插入。迁移后必须继续使用原来的 `CONTENT_ENCRYPTION_KEY`，否则旧密文无法解密。
 
-## Docker 部署
-
-先运行 `npm run setup` 生成 `.env`，将 `COOKIE_SECURE` 改为 `true`，再启动：
-
-```bash
-docker compose up -d --build
-```
-
-SQLite 数据保存在 Docker volume `secret-space-data`。生产环境应在服务前配置 Caddy、Nginx 或其他 HTTPS 反向代理。
-
 ## 常用命令
 
 ```bash

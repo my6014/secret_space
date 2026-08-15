@@ -1,10 +1,4 @@
 node_modules/
-.wrangler/
-.dev.vars
-.dev.vars.*
-.env
-.env.*
-!.env.example
 data/
 dist/
 coverage/
