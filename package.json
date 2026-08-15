@@ -4,18 +4,29 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "wrangler dev",
-    "deploy": "wrangler deploy",
+    "dev": "tsx watch src/server.ts",
+    "build": "tsup src/server.ts --format esm --platform node --out-dir dist --sourcemap",
+    "start": "node dist/server.js",
     "setup": "node scripts/setup-local.mjs",
-    "db:migrate:local": "wrangler d1 migrations apply secret-space --local",
-    "db:migrate:remote": "wrangler d1 migrations apply secret-space --remote",
+    "migrate:d1": "node scripts/migrate-d1-sqlite.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },
+  "dependencies": {
+    "better-sqlite3": "^12.2.0",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "mysql2": "^3.14.3"
+  },
   "devDependencies": {
-    "@cloudflare/workers-types": "^5.20260815.1",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.3.0",
+    "supertest": "^7.1.4",
+    "@types/supertest": "^6.0.3",
+    "tsx": "^4.20.5",
+    "tsup": "^8.5.0",
     "typescript": "^5.9.2",
-    "vitest": "^4.1.10",
-    "wrangler": "^4.123.0"
+    "vitest": "^4.1.10"
   }
 }

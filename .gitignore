@@ -2,7 +2,10 @@ node_modules/
 .wrangler/
 .dev.vars
 .dev.vars.*
-!.dev.vars.example
+.env
+.env.*
+!.env.example
+data/
 dist/
 coverage/
 .DS_Store

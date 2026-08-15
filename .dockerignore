@@ -1,0 +1,11 @@
+.git
+.env
+.env.*
+.dev.vars
+.dev.vars.*
+.wrangler
+node_modules
+data
+dist
+coverage
+npm-debug.log*

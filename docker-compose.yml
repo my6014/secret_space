@@ -1,0 +1,17 @@
+services:
+  secret-space:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 3000
+      SQLITE_PATH: /app/data/secret-space.db
+    ports:
+      - "3000:3000"
+    volumes:
+      - secret-space-data:/app/data
+
+volumes:
+  secret-space-data:
